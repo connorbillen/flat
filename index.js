@@ -8,6 +8,7 @@ function flatten(target, opts) {
   opts = opts || {}
 
   var delimiter = opts.delimiter || '.'
+  var noconcat = opts.noconcat
   var maxDepth = opts.maxDepth
   var output = {}
 
@@ -23,7 +24,7 @@ function flatten(target, opts) {
         type === "[object Array]"
       )
 
-      var newKey = prev
+      var newKey = prev && !noconcat
         ? prev + delimiter + key
         : key
 

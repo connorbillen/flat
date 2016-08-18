@@ -55,6 +55,18 @@ suite('Flatten', function() {
     })
   })
 
+  test('Remove Name Concatenation', function() {
+    assert.deepEqual(flatten({
+      hello: {
+        world: 'good morning'
+      }
+    }, {
+      noconcat: true
+    }), {
+      'world': 'good morning'
+    })
+  })
+
   test('Nested twice', function() {
     assert.deepEqual(flatten({
       hello: {
